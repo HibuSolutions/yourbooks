@@ -56,6 +56,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     Acceder
                                 </button>
+                                <a class="btn btn-info" href="{{url('/')}}">Regresar</a>
 
                             </div>
                         </div>

@@ -11,13 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('inicio');
-});
+
 Route::get('validacion', function () {
     return view('registrado');
 });
 
 Auth::routes();
+/* Rutas para todas las vitas */
+Route::get('/', 'Rutas@index');
 
-Route::get('/home', 'HomeController@index')->name('home');
+/* Rutas para todas las vitas admin*/
+Route::get('panelAdmin', 'Rutas@panel');
