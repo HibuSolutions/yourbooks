@@ -10,19 +10,31 @@
   <title>YourBooks</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
 
   <!-- Custom styles for this template -->
-  <link href="css/shop-homepage.css" rel="stylesheet">
+  <link href="{{asset('css/shop-homepage.css')}}" rel="stylesheet">
+  <link href="{{asset('panel/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
 
 </head>
 
 <body>
-
+@section('tiempo')
+<script type="text/javascript">
+  function refrescar(tiempo){
+    //Cuando pase el tiempo elegido la página se refrescará 
+    setTimeout("location.reload(true);", tiempo);
+  }
+  //Podemos ejecutar la función de este modo
+  //La página se actualizará dentro de 10 segundos
+  refrescar(10000);
+</script>
+@show
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href=""><img width="30" src="img/icono.png">YourBooks</a>
+      <a class="navbar-brand" href=""><img width="30" src="{{asset('img/icono.png')}}">YourBooks</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -119,8 +131,9 @@
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{asset('js/codigos.js')}}"></script>
+  <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
   @show
 </body>
 

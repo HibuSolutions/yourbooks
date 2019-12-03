@@ -1,6 +1,7 @@
 @extends('plantilla.panel')
 
 @section('container')
+
 <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
@@ -14,6 +15,9 @@
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
+
+ 
+
 </div>
     @endif
           <div class="card-body">
@@ -33,6 +37,7 @@
                
                 <tbody>
                    @foreach($libros as $libro)
+                   
                   <tr>
                   	<td style="max-width: 100px;">{{$libro->titulo}}</td>
                   	<td><img class="img-thumbnail"  src="../storage/app/{{$libro->img}}" style="height: 150px;

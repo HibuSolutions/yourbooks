@@ -33,12 +33,13 @@
           @foreach($libro as $libros)
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="../storage/app/{{$libros->img}}" alt=""></a>
+              <a href="#"><img class="card-img-top libroC" src="../storage/app/{{$libros->img}}" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
                   <a href="#">{{$libros->titulo}}</a>
                 </h4>
-               <p class="card-text">{{$libros->descripcion}}</p>
+               <a class="btn btn-info" href="{{route('libro.show',$libros->id)}}"><i class="fab fa-readme"></i></a>
+               <a class="btn btn-success" href=""><i class="fas fa-file-download"></i></a>
               </div>
               <div class="card-footer">
                 <small class="text-muted">Publicado el {{$libros->created_at}}</small>

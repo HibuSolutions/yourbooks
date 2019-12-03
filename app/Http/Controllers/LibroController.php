@@ -66,9 +66,11 @@ class LibroController extends Controller
     
     }
 
-    public function show(Libro $libro)
+    public function show($id)
     {
-
+        $libro=Libro::findOrFail($id);
+        $categorias=Categoria::all()->where('estado','0'); 
+        return view('view',compact('libro','categorias'));
     }
 
 
