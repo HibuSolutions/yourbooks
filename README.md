@@ -17,7 +17,7 @@ Team dedicado al desarrollo de apps moviles y sitios web
 git clone https://github.com/HibuSolutions/yourbooks.git
 
 # Access project
-cd crud-laravel-5.7
+cd yourbooks
 
 ## Config-Install
 # Install dependencies
