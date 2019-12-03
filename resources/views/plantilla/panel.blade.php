@@ -17,6 +17,7 @@
 
   <!-- Custom styles for this template-->
   <link href="{{asset('panel/css/sb-admin-2.min.css')}}" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
   <link href="{{asset('panel/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 
 </head>
@@ -64,8 +65,9 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Components:</h6>
-            <a class="collapse-item" href="buttons.html">Buttons</a>
-            <a class="collapse-item" href="cards.html">Cards</a>
+            <a class="collapse-item" href="buttons.html">Top</a>
+            <a class="collapse-item" href="cards.html">Colores</a>
+            <a class="collapse-item" href="cards.html">Imagenes</a>
           </div>
         </div>
       </li>
@@ -79,10 +81,7 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" href="{{url('libro')}}">Libros</a>
-            <a class="collapse-item" href="utilities-border.html">Borders</a>
-            <a class="collapse-item" href="utilities-animation.html">Animations</a>
-            <a class="collapse-item" href="utilities-other.html">Other</a>
+            <a class="collapse-item" href="{{url('libro')}}">Usuarios</a>
           </div>
         </div>
       </li>
@@ -104,13 +103,8 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Login Screens:</h6>
-            <a class="collapse-item" href="login.html">Login</a>
-            <a class="collapse-item" href="register.html">Register</a>
-            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-            <div class="collapse-divider"></div>
-            <h6 class="collapse-header">Other Pages:</h6>
-            <a class="collapse-item" href="404.html">404 Page</a>
-            <a class="collapse-item" href="blank.html">Blank Page</a>
+            <a class="collapse-item" href="{{url('libro')}}">Libros</a>
+            <a class="collapse-item" href="{{url('categoria')}}">Categorias</a>
           </div>
         </div>
       </li>

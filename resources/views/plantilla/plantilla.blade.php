@@ -97,9 +97,11 @@
       <div class="col-lg-3">
 
         <h1 class="my-4">Categorias</h1>
-        <div class="list-group">
-          @foreach($categorias as $categorias)
-          <a href="#" class="list-group-item">{{$categorias->nombre}}</a>
+
+
+        <div id="list-example" class="list-group">
+         @foreach($categorias as $categorias)
+          <a class="list-group-item list-group-item-action" href="#list-item-1"><img class="categorias" src="../storage/app/{{$categorias->img}}"> {{$categorias->nombre}}</a>
           @endforeach
         </div>
 

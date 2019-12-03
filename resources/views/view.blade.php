@@ -5,7 +5,7 @@
 @endsection
 
 @section('container')
-<div class="row mt-3">
+<div class="row mt-3 ">
 <div class="col-lg-9 ">
 	   
    <embed src="../../storage/app/{{$libro->archivo}}" type="application/pdf" width="100%" height="600px" />

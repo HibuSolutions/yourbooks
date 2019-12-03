@@ -6,3 +6,11 @@
 	width: 255px;
 	height: 191px;
 }
+
+
+.categorias{
+	width: 40px;
+	height: 40px;
+	border-radius:150px;
+    border:1px ;
+}

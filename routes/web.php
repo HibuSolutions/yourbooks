@@ -17,6 +17,7 @@ Route::get('validacion', function () {
 });
 
 Route::resource('libro','LibroController');
+Route::resource('categoria','CategoriaController');
 
 Auth::routes();
 /* Rutas para todas las vitas */

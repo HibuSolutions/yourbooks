@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Categoria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\UploadedFile;
 
 class CategoriaController extends Controller
 {
@@ -13,8 +15,9 @@ class CategoriaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   
+        $categorias=Categoria::all()->where('estado','0');
+        return view('panel.categoria.categorias',compact('categorias'));
     }
 
     /**
@@ -24,7 +27,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        //
+        return view('panel.categoria.create');
     }
 
     /**
@@ -35,7 +38,27 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $this->validate($request,[
+            'nombre'=>'required|max:80',                
+            'file' => 'required|mimes:jpg,jpeg,png',
+        ],
+
+        [
+            'nombre.max' => 'Máximo 80 caracteres para el nombre',
+            'file.required' => 'por favor sube una imagen',
+
+        ]);
+
+        
+       
+        $ruta=$request->file('file')->store('categorias');
+        $categoria = new Categoria;
+        $categoria->nombre = $request->nombre;
+        $categoria->img=$ruta;
+        $categoria->save();
+        return redirect('categoria')->with('categoria','categoria agregada correctamente');
+        
+
     }
 
     /**
@@ -55,9 +78,11 @@ class CategoriaController extends Controller
      * @param  \App\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function edit(Categoria $categoria)
+    public function edit($id)
     {
-        //
+        $categoria=Categoria::findOrFail($id);
+
+        return view('panel.categoria.edit',compact('categoria'));
     }
 
     /**
@@ -67,9 +92,44 @@ class CategoriaController extends Controller
      * @param  \App\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Categoria $categoria)
+    public function update(Request $request, $id)
     {
-        //
+                 $this->validate($request,[
+            'nombre'=>'required|max:80',                
+            'file' => 'mimes:jpg,jpeg,png',
+        ],
+
+        [
+            'nombre.max' => 'Máximo 80 caracteres para el nombre',
+            'file.mimes' => 'por favor sube una imagen',
+
+        ]);
+
+           $categoria=request()->except(['_token','_method']);
+
+
+            
+            ////con esta madre remplaza la imagen si viene una en el form si sale del if
+
+            if($request->hasFile('file')){
+            $borrar=Categoria::findOrFail($id);         
+            Storage::disk('local')->delete('app',$borrar->img);   
+            $ruta=$request->file('file')->store('categorias');
+            $categoria = Categoria::findOrFail($id);
+            $categoria->nombre=$request->nombre;
+            $categoria->img=$ruta;           
+            $categoria->save();       
+            return redirect('categoria');
+            }else{
+
+            $categoria = Categoria::findOrFail($id);
+            $ruta=$categoria->img;
+            $categoria->nombre=$request->nombre;
+            $categoria->img=$ruta;
+            $categoria->save();
+            return redirect('categoria')->with('categoria','categoria editada correctamente');
+
+            }
     }
 
     /**
@@ -78,8 +138,11 @@ class CategoriaController extends Controller
      * @param  \App\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Categoria $categoria)
+    public function destroy($id)
     {
-        //
+        $categoria = Categoria::findOrFail($id);
+        Storage::disk('local')->delete('app',$categoria->img); 
+        $categoria->delete();
+        return redirect('categoria')->with('categoria','categoria eliminada correctamente');
     }
 }
