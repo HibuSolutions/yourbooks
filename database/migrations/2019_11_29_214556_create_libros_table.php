@@ -15,8 +15,10 @@ class CreateLibrosTable extends Migration
     {
         Schema::create('libros', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('nombre');
+            $table->text('titulo');
             $table->text('img');
+            $table->text('descripcion');
+            $table->text('archivo');
             $table->boolean('estado')->default(0);
             $table->unsignedBigInteger('categoria_id');
             $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');

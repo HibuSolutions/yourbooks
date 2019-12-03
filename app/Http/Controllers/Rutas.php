@@ -18,6 +18,6 @@ class Rutas extends Controller
     {
         $libro=Libro::all()->where('estado','0');
         $categorias=Categoria::all()->where('estado','0');
-        return view('inicio',compact('categorias'));
+        return view('inicio',compact('categorias','libro'));
     }
 }

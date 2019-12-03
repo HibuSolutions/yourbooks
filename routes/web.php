@@ -16,9 +16,11 @@ Route::get('validacion', function () {
     return view('registrado');
 });
 
+Route::resource('libro','LibroController');
+
 Auth::routes();
 /* Rutas para todas las vitas */
 Route::get('/', 'Rutas@index');
 
 /* Rutas para todas las vitas admin*/
-Route::get('panelAdmin', 'Rutas@panel');
+Route::get('panelAdmin', 'Rutas@panel')->name('panelAdmin');

@@ -39,6 +39,7 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Contacto</a>
           </li>
+    
           @guest
           <li class="nav-item">
             <a class="nav-link" href="{{route('login')}}">Acceder</a>
@@ -49,6 +50,9 @@
             <a class="nav-link " href="{{route('register')}}">Registrate</a>
           </li>
           @else
+                <li class="nav-item">
+            <a class="nav-link" href="{{route('panelAdmin')}}">Panel Administrativo</a>
+          </li>
            <li class="nav-item dropdown">
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><img src="{{asset('img/online.png')}}" width="10"> <i class="fa fa-user-o" aria-hidden="true"></i>
 
