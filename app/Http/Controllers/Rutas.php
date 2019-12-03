@@ -17,7 +17,14 @@ class Rutas extends Controller
 
     public function index()
     {
-        $libro=Libro::where('estado','0')->orderBy('id', 'DESC')->take(6)->get();
+        
+
+         $libro= Libro::join('categorias','libros.categoria_id','=','categorias.id')
+        ->where('categorias.estado','=',0 )
+        ->select('libros.titulo','libros.updated_at','libros.img','libros.archivo','libros.created_at','categorias.nombre','libros.id')->take(6)
+        ->get();
+
+
         $categorias=Categoria::all()->where('estado','0');
         return view('inicio',compact('categorias','libro'));
     }

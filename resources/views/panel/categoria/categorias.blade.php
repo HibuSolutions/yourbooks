@@ -27,7 +27,7 @@
                   <tr>
                     <th>Titulo</th>
                     <th>Imagen</th>
-                    <th>Fecha Agregado</th>
+                   <th>Fecha Agregado</th>
                     <th>Ultima Actulizacion</th>
                     <th>Acciones</th>
                   </tr>
@@ -39,8 +39,6 @@
                   <tr>
                   	<td style="max-width: 100px;">{{$categoria->nombre}}</td>
                   	<td><img class="categorias"  src="../storage/app/{{$categoria->img}}" ></td>
-              
-                  
                     <td>{{$categoria->created_at}}</td>
                     <td>{{$categoria->updated_at}}</td>
                    
@@ -51,7 +49,12 @@
                         @csrf()
                         @method('DELETE')
                         <a class="btn btn-primary" href="{{route('categoria.edit',$categoria->id)}}"><i class="fas fa-edit"></i></a>
-                        <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                         @if($categoria->estado === 1)
+                         <button type="submit" class="btn btn-success">Activar <i class="fas fa-check-circle"></i></button>
+                     
+                      @else
+                             <button type="submit" class="btn btn-danger">Desactivar <i class="far fa-times-circle"></i></button>
+                        @endif
                         </form>
                     </td>
                   </tr>

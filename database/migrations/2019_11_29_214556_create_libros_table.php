@@ -20,8 +20,8 @@ class CreateLibrosTable extends Migration
             $table->text('descripcion')->nullable();
             $table->text('archivo')->nullable();
             $table->boolean('estado')->default(0);
-            $table->unsignedBigInteger('categoria_id');
-            $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
+            $table->unsignedBigInteger('categoria_id')->nullable();
+            $table->foreign('categoria_id')->references('id')->on('categorias');
 
             $table->timestamps();
         });

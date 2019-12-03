@@ -14,7 +14,7 @@ class LibroController extends Controller
 
     public function index()
     {   $libros= Libro::join('categorias','libros.categoria_id','=','categorias.id')
-    ->where('categorias.estado','=',0)
+    
     ->select('libros.titulo','libros.updated_at','libros.img','libros.archivo','libros.created_at','categorias.nombre','libros.id')
     ->get();
         

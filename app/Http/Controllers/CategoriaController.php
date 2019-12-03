@@ -16,7 +16,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {   
-        $categorias=Categoria::all()->where('estado','0');
+        $categorias=Categoria::all();
         return view('panel.categoria.categorias',compact('categorias'));
     }
 
@@ -140,9 +140,19 @@ class CategoriaController extends Controller
      */
     public function destroy($id)
     {
-        $categoria = Categoria::findOrFail($id);
-        Storage::disk('local')->delete('app',$categoria->img); 
-        $categoria->delete();
-        return redirect('categoria')->with('categoria','categoria eliminada correctamente');
+         $categoria = Categoria::findOrFail($id);
+        $estado=$categoria->estado;
+        if($estado === 0){
+            $categoria->estado=(1);
+            $categoria->save();
+            return redirect('categoria')->with('categoria','categoria desactivada correctamente');
+        }else{
+            $categoria->estado=(0);
+            $categoria->save();
+            return redirect('categoria')->with('categoria','categoria activada correctamente');
+
+        }
     }
+
+
 }

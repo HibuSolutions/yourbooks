@@ -14,7 +14,7 @@ Team dedicado al desarrollo de apps moviles y sitios web
 
 ## Download - Descargar
 # clone
-git clone https://github.com/carlosfgti/crud-laravel-5.7.git
+git clone https://github.com/HibuSolutions/yourbooks.git
 
 # Access project
 cd crud-laravel-5.7
