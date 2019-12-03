@@ -34,7 +34,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href=""><img width="30" src="{{asset('img/icono.png')}}">YourBooks</a>
+      <a class="navbar-brand" href="{{url('/')}}"><img width="30" src="{{asset('img/icono.png')}}">YourBooks</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -101,7 +101,7 @@
 
         <div id="list-example" class="list-group">
          @foreach($categorias as $categorias)
-          <a class="list-group-item list-group-item-action" href="#list-item-1"><img class="categorias" src="../storage/app/{{$categorias->img}}"> {{$categorias->nombre}}</a>
+          <a class="list-group-item list-group-item-action" href="{{url('categoria',$categorias->id)}}"><img class="categorias" src="{{asset('../storage/app/')}}/{{$categorias->img}}">  {{$categorias->nombre}}</a>
           @endforeach
         </div>
 

@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Categoria;
 use Illuminate\Http\Request;
+use App\Libro;
 use Illuminate\Support\Facades\Storage;
+use paginate;
+use paginator;
 use Illuminate\Http\UploadedFile;
 
 class CategoriaController extends Controller
@@ -67,9 +70,17 @@ class CategoriaController extends Controller
      * @param  \App\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function show(Categoria $categoria)
+    public function show($id)
     {
-        //
+        
+         $libro= Libro::join('categorias','libros.categoria_id','=','categorias.id')
+        ->where('libros.categoria_id','=',$id)
+        ->select('libros.titulo','libros.updated_at','libros.img','libros.archivo','libros.created_at','categorias.nombre','libros.id')->paginate(2);
+        
+
+
+        $categorias=Categoria::all()->where('estado','0');
+        return view('show',compact('categorias','libro'));
     }
 
     /**

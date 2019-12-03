@@ -42,7 +42,9 @@
                <a class="btn btn-success" href=""><i class="fas fa-file-download"></i></a>
               </div>
               <div class="card-footer">
-                <small class="text-muted">Publicado el {{$libros->created_at}}</small>
+                <small class="text-muted">publicado el {{ date('d-M-y', strtotime($libros->created_at)) }}</small>
+
+
               </div>
             </div>
           </div>
