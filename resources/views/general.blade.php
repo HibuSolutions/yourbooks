@@ -1,15 +1,13 @@
 @extends('plantilla.plantilla')
 
 @section('container')
-@foreach($libro as $libros)
-<h1>Libros de {{$libros->nombre}}</h1>
-@endforeach
+<h1>Libros de la a - z</h1>
         <div class="row">
           @foreach($libro as $libros)
 
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="#"><img class="card-img-top libroC" src="../../storage/app/{{$libros->img}}" alt=""></a>
+              <a href="#"><img class="card-img-top libroC" src="../storage/app/{{$libros->img}}" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
                   

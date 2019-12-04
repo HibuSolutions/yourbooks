@@ -19,7 +19,7 @@
 
 </head>
 
-<body>
+<body class="@yield('body-class')">
 @section('tiempo')
 <script type="text/javascript">
   function refrescar(tiempo){
@@ -46,10 +46,10 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Libros</a>
+            <a class="nav-link" href="{{url('librosGeneral')}}">Libros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contacto</a>
+            <a class="nav-link" href="{{url('contacto')}}">Contacto</a>
           </li>
     
           @guest

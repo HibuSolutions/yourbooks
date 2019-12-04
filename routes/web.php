@@ -15,13 +15,15 @@
 Route::get('validacion', function () {
     return view('registrado');
 });
-
+Route::resource('contacto','ContactoController');
 Route::resource('libro','LibroController');
 Route::resource('categoria','CategoriaController');
 
 Auth::routes();
 /* Rutas para todas las vitas */
 Route::get('/', 'Rutas@index');
+Route::get('librosGeneral', 'Rutas@librosGeneral');
+Route::get('contactosPanel','ContactoController@panelC');
 
 /* Rutas para todas las vitas admin*/
 Route::get('panelAdmin', 'Rutas@panel')->name('panelAdmin');

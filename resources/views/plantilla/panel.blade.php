@@ -105,6 +105,7 @@
             <h6 class="collapse-header">Login Screens:</h6>
             <a class="collapse-item" href="{{url('libro')}}">Libros</a>
             <a class="collapse-item" href="{{url('categoria')}}">Categorias</a>
+            <a class="collapse-item" href="{{url('contactos')}}">Contacto</a>
           </div>
         </div>
       </li>

@@ -75,7 +75,7 @@ class CategoriaController extends Controller
         
          $libro= Libro::join('categorias','libros.categoria_id','=','categorias.id')
         ->where('libros.categoria_id','=',$id)
-        ->select('libros.titulo','libros.updated_at','libros.img','libros.archivo','libros.created_at','categorias.nombre','libros.id')->paginate(2);
+        ->select('libros.titulo','libros.updated_at','libros.img','libros.archivo','libros.created_at','categorias.nombre','libros.id')->paginate(9);
         
 
 
