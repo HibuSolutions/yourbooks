@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-12-2019 a las 06:33:35
+-- Tiempo de generación: 04-12-2019 a las 06:35:13
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.9
 
@@ -56,13 +56,6 @@ CREATE TABLE `contactos` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Volcado de datos para la tabla `contactos`
---
-
-INSERT INTO `contactos` (`id`, `fb`, `in`, `yt`, `img`, `txt1`, `txt2`, `txt3`, `created_at`, `updated_at`) VALUES
-(1, 'https://www.facebook.com/iamhibu', 'https://www.instagram.com/javier_alexander503', 'https://www.youtube.com/channel/UCJ3NrlZLHddzGDXGuTvpHuA', 'img/captura.jpg', 'Hola como estas esperamos que bien!', 'Este sitio web fue desarrollado por la compañia HibuSolutions.\r\n\r\n', 'Si estas interesado en una app o sitio web no dudes en contactarnos\r\n\r\n', NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -98,11 +91,11 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(55, '2014_10_12_000000_create_users_table', 1),
-(56, '2014_10_12_100000_create_password_resets_table', 1),
-(57, '2019_11_29_210309_create_categorias_table', 1),
-(58, '2019_11_29_214556_create_libros_table', 1),
-(59, '2019_12_03_235438_create_contactos_table', 1);
+(60, '2014_10_12_000000_create_users_table', 1),
+(61, '2014_10_12_100000_create_password_resets_table', 1),
+(62, '2019_11_29_210309_create_categorias_table', 1),
+(63, '2019_11_29_214556_create_libros_table', 1),
+(64, '2019_12_03_235438_create_contactos_table', 1);
 
 -- --------------------------------------------------------
 
@@ -138,7 +131,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `pass`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'administrador', 'admin@gmail.com', '$2y$10$dRY5rwxRfbIVX4t96O5VkOBHL4oZNGr5Zcu9kvJAF1ArT0tbxoNQC', '2020', NULL, '2019-12-04 11:44:17', '2019-12-04 11:44:17');
+(1, 'administrador', 'admin@gmail.com', '$2y$10$ZcTXf.7QdoiO2Wry5D3TROW3m7851iZuar3pxG43xpFskPAKzraJe', '2020', NULL, '2019-12-04 14:35:06', '2019-12-04 14:35:06');
 
 --
 -- Índices para tablas volcadas
@@ -196,7 +189,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `contactos`
 --
 ALTER TABLE `contactos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `libros`
@@ -208,7 +201,7 @@ ALTER TABLE `libros`
 -- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
