@@ -7,6 +7,9 @@
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.9
 
+CREATE DATABASE IF NOT EXISTS yourbooks;
+USE yourbooks;
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;

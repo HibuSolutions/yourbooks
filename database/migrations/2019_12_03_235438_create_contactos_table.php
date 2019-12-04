@@ -21,7 +21,6 @@ class CreateContactosTable extends Migration
             $table->text('img')->nullable();
             $table->text('txt1')->nullable();
             $table->text('txt2')->nullable();
-            $table->text('txt3')->nullable();
             $table->timestamps();
         });
     }

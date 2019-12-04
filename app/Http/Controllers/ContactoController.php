@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Contacto;
 use App\Categoria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\UploadedFile;
+
 
 class ContactoController extends Controller
 {
@@ -30,15 +33,41 @@ class ContactoController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        
+       if($request->hasFile('img')){
+        $edit=Contacto::findOrFail(1);
+        Storage::disk('local')->delete('app',$edit->img);
+        $ruta=$request->file('img')->store('contacto');
+       
+        $edit->txt1=$request->txt1;
+        $edit->txt2=$request->txt2;
+        $edit->in=$request->in;
+        $edit->yt=$request->yt;
+        $edit->fb=$request->fb;
+        $edit->img=$ruta;
+        $edit->save();
+        return redirect('contactosPanel');
+
+       }else{
+        $contacto=Contacto::findOrFail(1);
+        $contacto->txt1=$request->txt1;
+        $contacto->txt2=$request->txt2;
+        $contacto->in=$request->in;
+        $contacto->yt=$request->yt;
+        $contacto->fb=$request->fb;
+        $contacto->save();
+        return redirect('contactosPanel');
+       }
+
+
+
+
+
+        
+
     }
 
     /**
@@ -49,7 +78,7 @@ class ContactoController extends Controller
      */
     public function show(Contacto $contacto)
     {
-        //
+        
     }
 
     /**
@@ -60,7 +89,7 @@ class ContactoController extends Controller
      */
     public function edit(Contacto $contacto)
     {
-        //
+        
     }
 
     /**
@@ -87,7 +116,7 @@ class ContactoController extends Controller
     }
 
     public function panelC(){
-
-        return view('panel.contactos.contactos');
+        $data=Contacto::findOrFail(1);
+        return view('panel.contactos.contactos',compact('data'));
     }
 }
