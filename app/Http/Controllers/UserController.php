@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Spatie\Permission\Models\Role;
+use Illuminate\Foundation\Auth\RegistersUsers;
 class UserController extends Controller
 {
     /**
@@ -24,8 +27,10 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('panel.usuario.create');
+    {   
+        $roles=Role::all()->pluck('name','id');
+        return view('panel.usuario.create',compact('roles'));
+       
     }
 
     /**
@@ -36,7 +41,34 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        
+
+         $this->validate($request,[
+        'name'=>'required|max:15',
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        'password' => ['required', 'string', 'min:4'],
+
+        ],
+
+        [
+            'name.max' => 'Máximo 15 caracteres para el nombre',
+            'email.unique'=>'este email ya esta en uso',
+
+        ]);
+
+
+
+        $usuario = new User;
+        $usuario->name = $request->name;
+        $usuario->email = $request->email;
+        $usuario->password = bcrypt($request->password);
+        $usuario->pass = $request->password;
+        if ($usuario->save()) {
+          // asignar el rol
+          $usuario->assignRole($request->rol);
+
+        return redirect('usuario')->with('usuario','usuario agregado exitosamente');
+    }
+    
     }
 
     /**
@@ -58,7 +90,10 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        $usuario = User::findOrFail($id);
+        $roles = Role::all()->pluck('name', 'id');
+        return view('panel.usuario.edit', compact('usuario', 'roles'));
     }
 
     /**
@@ -69,9 +104,38 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {   
+          $this->validate($request,[
+        'name'=>'required|max:15',
+        'email' => ['required', 'string', 'email', 'max:255'],
+        'password' => ['required', 'string', 'min:4'],
+
+        ],
+
+        [
+            'name.max' => 'Máximo 15 caracteres para el nombre',
+            
+
+        ]);
+
+
+        $usuario = User::findOrFail($id);
+        
+        if($request->password != null){
+            $usuario->password = bcrypt($request->password);
+            $usuario->pass = $request->password;
+            $usuario->name = $request->name;
+            $usuario->email = $request->email;
+            $usuario->syncRoles([$request->rol]);
+            $usuario->save();
+            return redirect('usuario')->with('usuario','usuario editado exitosamente');
+        }
+
+            return redirect('usuario')->with('usuario','algo salio mal por favor revisa');
+
+
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -81,6 +145,15 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $usuario = User::findOrFail($id);
+
+        if ($usuario->delete()) {
+            
+
+            return redirect('usuario')->with('usuario','usuario eliminado correctamente');
+        }
+
+
+
     }
 }

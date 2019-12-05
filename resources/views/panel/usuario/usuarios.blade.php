@@ -24,12 +24,13 @@
               <table class="table table-hover" id="dataTable" width="100%" cellspacing="0" >
                 <thead class="thead-dark">
                   <tr>
-                    <th>id</th>
+               
                     <th>nombre</th>
+                    <th>Rol</th>
                     <th>email</th>
                    <th>paswoord</th>
-                    <th>Fecha Agregado</th>
-                    <th>Ultima Actulizacion</th>
+                    <th>Agregado</th>
+                    <th>Actulizacion</th>
                     <th>Acciones</th>
                   </tr>
                 </thead>
@@ -38,12 +39,13 @@
                    @foreach($usuarios as $usuario)
                    
                   <tr>
-                    <td>{{$usuario->id}}</td>
+              
                     <td>{{$usuario->name}}</td>
+                    <td>{{$usuario->roles->implode('name',',')}}</td>
                     <td>{{$usuario->email}}</td>
                     <td>{{$usuario->pass}}</td>
-                    <td>{{$usuario->created_at}}</td>
-                    <td>{{$usuario->updated_at}}</td>
+                    <td>{{ date('d-M-y', strtotime($usuario->created_at)) }}</td>
+                    <td>{{ date('d-M-y', strtotime($usuario->updated_at)) }}</td>
                    
                     <td>
                         

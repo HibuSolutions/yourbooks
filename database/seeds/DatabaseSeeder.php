@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Categoria;
 use App\User;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -11,15 +14,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $administrador = User::create([
-        	'name'=>'administrador',
-        	'email'=>'admin@gmail.com',
-        	'password'=>bcrypt('2020'),
-            'pass'=>'2020',
+        
 
+            $this->call(RolesAndPermission::class);
+            $this->call(UsersTableSeeder::class);
+            $this->call(ContactoSeed::class);
 
-        ]);
-
-     
     }
+
+
 }

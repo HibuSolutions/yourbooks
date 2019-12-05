@@ -1,12 +1,16 @@
 @extends('plantilla.panel')
 
 @section('container')
- <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="card">
-          <div class="card-header">
-            Nuevo Libro
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header">
+              Editar usuario
+            </div>
+
+            <div class="card-body">
+              Nuevo usuario
             @if($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -22,73 +26,41 @@
             <p>{{ session('mensaje') }}</p>
         </div>
     @endif
-          </div>
-          <div class="card-body">
-            <form action="{{route('libro.update',$libro->id)}}" method="post" enctype="multipart/form-data">
-              @csrf
-              @method('PUT')
-              <div class="form-group">
-                <label for="name">Titulo</label>
-                <input type="text" name="titulo" value="{{$libro->titulo}}" required class="form-control">
-              </div>
-    
+              <form action="{{ route('usuario.update', $usuario->id) }}" method="post">
+                @method('PUT')
+                @csrf
                 <div class="form-group">
-                <label for="descripcion">Descripcion</label>
-          
-
-
-          <div class="md-form">
-
-
-         <textarea id="form7"  name="descripcion" required=""  class="md-textarea form-control" rows="3">{{$libro->descripcion}}</textarea>
-
-
-          
-          </div>
-
-              </div>
-      
-              <div class="" style="background-image: url(../../img/login/textura.jpg); ">
-                <img class="img-fluid rounded mx-auto d-block " src="../../../storage/app/{{$libro->img}}" style="height: 400px;
-                      width:300px;">
-              </div>
-                
-
-                <div class="form-group">
-                  <label for="name">Imagen</label>
-                  
-                
-                <input type="file" name="imagen"  class="form-control">
-
+                  <label for="name">Name</label>
+                  <input type="text" name="name" required class="form-control" value="{{ $usuario->name }}">
                 </div>
-                      <div class="form-group">
-                    <label for="name">LIBRO PDF </label>
-                    
-                  
-                  <input type="file" name="archivo"  class="form-control" accept="aplication/pdf">
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="text" name="email" required class="form-control" value="{{ $usuario->email }}">
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="text" name="password" required class="form-control" value="{{ $usuario->pass }}">
+                </div>
+                <div class="form-group">
+                  <label for="email">Rol</label>
+                  <select class="form-control" name="rol">
+                    @foreach ($roles as $key => $value)
+                        @if ($usuario->hasRole($value))
+                            <option value="{{ $value }}" selected>{{ $value }}</option>
+                        @else
+                            <option value="{{ $value }}">{{ $value }}</option>
+                        @endif
+                    @endforeach
 
-                  </div>
-
-                 
-              <div class="form-group">
-
-                <label for="categoria">Categoria</label>
-                <select class="form-control" name="categorias_id">
-                 
-
-                  @foreach ($categorias as $key)
-                    <option value="{{ $key->id }}">{{ $key->nombre }}</option>
-                  @endforeach
-                </select>
-              </div>
-              <div class="justify-content-end">
-                <input type="submit" value="Enviar" class="btn btn-success">
-                <a class="btn btn-danger" href="">Regresar</a>
-              </div>
-            </form>
+                  </select>
+                </div>
+                <div class="justify-content-end">
+                  <input type="submit" value="Enviar" class="btn btn-success">
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 @endsection

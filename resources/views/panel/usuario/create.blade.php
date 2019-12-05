@@ -5,9 +5,8 @@
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="card">
-   
           <div class="card-header">
-            Nuevo Libro
+            Nuevo usuario
             @if($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -25,45 +24,33 @@
     @endif
           </div>
           <div class="card-body">
-            <form action="{{route('libro.store')}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('usuario.store') }}" method="post">
               @csrf
               <div class="form-group">
-                <label class="" for="name ">Titulo</label>
-                <input type="text" name="titulo" required class="form-control">
+                <label for="name">Nombre</label>
+                <input type="text" name="name" required class="form-control">
               </div>
-        
-                <div class="form-group">
-                <label for="descripcion">Descripcion</label>
-                <textarea required  name="descripcion" class="form-control" rows="5" cols="20"></textarea>
-                  
-                
-              </div>
-    
-                <div class="form-group">
-                <label for="name">Imagen</label>
-                <input type="file" name="file"  class="form-control" required="" accept="image/*" >
-                </div>
-
-                <div class="form-group">
-                <label for="name">Libro PDF O WORD</label>
-                <input type="file" name="archivo"  class="form-control" required="" accept="application/pdf/doc/docx" >
-
-                </div>
-               
               <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" required class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" required class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="email">Rol</label>
+                <select class="form-control" name="rol">
+                  @foreach ($roles as $key => $value)
+                    <option value="{{ $value }}">{{ $value }}</option>
 
-                <label for="categoria">Categoria</label>
-                <select class="form-control" name="categoria">
-                 
-
-
-                                <option value=""></option>
-
+                  @endforeach
+                       
                 </select>
               </div>
               <div class="justify-content-end">
                 <input type="submit" value="Enviar" class="btn btn-success">
-                <a class="btn btn-danger" href="">Regresar</a>
+                <a class="btn btn-danger" href="{{url('/dashUsuarios')}}">Regresar</a>
               </div>
             </form>
           </div>
@@ -71,6 +58,5 @@
       </div>
     </div>
   </div>
-
 
 @endsection
