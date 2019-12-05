@@ -19,6 +19,7 @@ Route::resource('contacto','ContactoController');
 Route::resource('libro','LibroController');
 Route::resource('categoria','CategoriaController');
 Route::resource('usuario','UserController');
+Route::resource('panelAdmin','Panel');
 
 Auth::routes();
 /* Rutas para todas las vitas */
@@ -27,4 +28,4 @@ Route::get('librosGeneral', 'Rutas@librosGeneral');
 Route::get('contactosPanel','ContactoController@panelC');
 
 /* Rutas para todas las vitas admin*/
-Route::get('panelAdmin', 'Rutas@panel')->name('panelAdmin');
+

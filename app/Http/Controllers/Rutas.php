@@ -10,11 +10,7 @@ use App\Paginator;
 
 class Rutas extends Controller
 {
-      public function panel()
-    {
-        $contacto=contacto::findOrFail(1);
-        return view('panel.index',compact('contacto'));
-    }
+
 
     public function index()
     {

@@ -4,8 +4,8 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="description" content="hibu">
+  <meta name="author" content="hibu">
 
   <title>YourBooks</title>
 
@@ -63,7 +63,7 @@
           </li>
           @else
                 <li class="nav-item">
-            <a class="nav-link" href="{{route('panelAdmin')}}">Panel Administrativo</a>
+            <a class="nav-link" href="{{url('panelAdmin')}}">Panel Administrativo</a>
           </li>
            <li class="nav-item dropdown">
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><img src="{{asset('img/online.png')}}" width="10"> <i class="fa fa-user-o" aria-hidden="true"></i>
@@ -124,19 +124,13 @@
 
 
   <!-- Footer -->
-  @section('footer')
-  <footer class="py-2 bg-dark">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Hibu Solutions 2019</p>
-    </div>
-    <!-- /.container -->
-  </footer>
+
 
   <!-- Bootstrap core JavaScript -->
   <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
   <script src="{{asset('js/codigos.js')}}"></script>
   <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-  @show
+
 </body>
 
 </html>

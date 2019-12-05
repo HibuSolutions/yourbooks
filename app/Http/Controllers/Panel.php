@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Contacto;
+use App\User;
+use App\Libro;
+use App\Categoria;
 
 class Panel extends Controller
 {
@@ -13,8 +17,14 @@ class Panel extends Controller
      */
     public function index()
     {
-        //
+    $usuarios=User::count();    
+    $libros=Libro::count();  
+    $categorias=Categoria::count();  
+    $contacto=contacto::findOrFail(1);
+    return view('panel.index',compact('contacto','usuarios','libros','categorias'));
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -78,6 +88,11 @@ class Panel extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
+    {
+        //
+    }
+
+    public function top($id)
     {
         //
     }
