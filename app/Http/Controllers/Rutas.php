@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Libro;
 use App\Categoria;
+use App\Contacto;
 use App\Paginator;
 
 class Rutas extends Controller
 {
       public function panel()
     {
-      
-        return view('panel.index');
+        $contacto=contacto::findOrFail(1);
+        return view('panel.index',compact('contacto'));
     }
 
     public function index()

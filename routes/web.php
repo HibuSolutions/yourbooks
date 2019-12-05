@@ -18,6 +18,7 @@ Route::get('validacion', function () {
 Route::resource('contacto','ContactoController');
 Route::resource('libro','LibroController');
 Route::resource('categoria','CategoriaController');
+Route::resource('usuario','UserController');
 
 Auth::routes();
 /* Rutas para todas las vitas */

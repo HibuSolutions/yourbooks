@@ -20,7 +20,7 @@
           <label for="username">Primer Texto</label>
           <div class="input-group">
             <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fab fa-facebook-square"></i></i></span>
+              <span class="input-group-text"><i class="far fa-keyboard"></i></i></span>
             </div>
             <input type="text" class="form-control"  name="txt1" value="{{$data->txt1}}" placeholder="facebook" >
             
@@ -31,7 +31,7 @@
           <label for="username">Segundo Texto</label>
           <div class="input-group">
             <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fab fa-facebook-square"></i></i></span>
+              <span class="input-group-text"><i class="far fa-keyboard"></i></i></span>
             </div>
             <input type="text" class="form-control"  name="txt2" value="{{$data->txt2}}" placeholder="facebook" >
             
