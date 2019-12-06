@@ -6,7 +6,9 @@
 
 Team dedicado al desarrollo de apps moviles y sitios web
 
-
+Facebook: https://www.facebook.com/Hibu-Solutions-2339858166096856/
+Instagram:https://www.instagram.com/javier_alexander503
+Correo: hibuing@gmail.com
 
 # clone
 git clone https://github.com/HibuSolutions/yourbooks.git
