@@ -155,8 +155,10 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
                 <span class="mr-2 d-none d-lg-inline text-white-600 small ">{{Auth()->user()->name}}</span>
-                <img class="img-profile rounded-circle" src="https://scontent.fsal3-1.fna.fbcdn.net/v/t1.0-9/p960x960/72543079_528239914671069_1461814551807787008_o.jpg?_nc_cat=104&_nc_ohc=t-WntkwXNBMAQnJBOz4lO3zVeGKqnUwte9k7exe4eF0FehwPcjzzcbzSw&_nc_ht=scontent.fsal3-1.fna&oh=25908c66cdfe56976904a4b553e117f5&oe=5E82ECDC">
+                  <i class="fas fa-user"></i>
+                  <img src="{{asset('img/online.png')}}" width="10">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
