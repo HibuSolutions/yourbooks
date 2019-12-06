@@ -24,6 +24,7 @@
     @endif
           </div>
           <div class="card-body">
+            @role('administrador')
             <form action="{{route('usuario.store') }}" method="post">
               @csrf
               <div class="form-group">
@@ -53,6 +54,9 @@
                 <a class="btn btn-danger" href="{{url('/dashUsuarios')}}">Regresar</a>
               </div>
             </form>
+            @else
+              <h4>no tienes permisos para esta seccion</h4>
+            @endrole
           </div>
         </div>
       </div>

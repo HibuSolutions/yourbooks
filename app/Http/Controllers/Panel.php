@@ -7,6 +7,10 @@ use App\Contacto;
 use App\User;
 use App\Libro;
 use App\Categoria;
+use App\Intro;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Spatie\Permission\Models\Role;
 
 class Panel extends Controller
 {
@@ -44,7 +48,11 @@ class Panel extends Controller
      */
     public function store(Request $request)
     {
-        
+        $intro=Intro::findOrFail(1);
+        $intro->txt1=$request->txt1;
+        $intro->txt2=$request->txt2;
+        $intro->save();
+        return redirect('intro');
     }
 
     /**
@@ -92,8 +100,9 @@ class Panel extends Controller
         //
     }
 
-    public function top($id)
-    {
-        //
+    public function intro()
+    {   
+        $intro=Intro::findOrFail(1);
+        return view('panel.intro.intro',compact('intro'));
     }
 }

@@ -2,21 +2,12 @@
 
 @section('container')
 <center >
-<div class="card mt-3" >
+<div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <img src="img/photo.jpg" class="card-img-top carrusel image" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-    </div>
-      <div class="middle">
-    <a class="btn btn-primary" href="">Ver</a>
+    <img class="" width="70" src="{{asset('img/icono.png')}}">
+    <h1 class="display-4">{{$intro->txt1}}</h1>
+    <p class="lead">{{$intro->txt2}}</p>
   </div>
-    <div class="">
-      <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-    </div>
-  </div>
-
 </div>
 </center>
 

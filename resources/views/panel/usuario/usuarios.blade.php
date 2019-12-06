@@ -5,7 +5,11 @@
           <div class="card-header">
             <i class="fas fa-table"></i>
             Registro de usuarios
+              @role('administrador')
             <a class="btn btn-primary" href="{{route('usuario.create')}}"><i class="fas fa-plus-square"></i> Agregar</a>
+             @else
+
+              @endrole
 
           </div>
     @if(session('usuario'))
@@ -21,6 +25,7 @@
     @endif
           <div class="card-body">
             <div class="table-responsive">
+              @role('administrador')
               <table class="table table-hover" id="dataTable" width="100%" cellspacing="0" >
                 <thead class="thead-dark">
                   <tr>
@@ -60,8 +65,11 @@
                   </tr>
                   @endforeach
                 </tbody>
-                
+               
               </table>
+              @else
+                <h6>No tiene permisos para gestionar usuarios</h6>
+              @endrole
             </div>
           </div>
      

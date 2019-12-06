@@ -30,8 +30,9 @@
   //La página se actualizará dentro de 10 segundos
   refrescar(10000);
 </script>
+
 @show
-  <!-- Navigation -->
+  <!-- Navigation --> 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="{{url('/')}}"><img width="30" src="{{asset('img/icono.png')}}">YourBooks</a>
@@ -41,15 +42,15 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Inicio
+            <a class="nav-link" href="{{url('/')}}"><i class="fas fa-home"></i> Inicio
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{url('librosGeneral')}}">Libros</a>
+            <a class="nav-link" href="{{url('librosGeneral')}}"><i class="fas fa-book"></i> Libros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{url('contacto')}}">Contacto</a>
+            <a class="nav-link" href="{{url('contactos')}}"><i class="fas fa-envelope-open-text"></i> Contacto</a>
           </li>
     
           @guest
@@ -62,9 +63,11 @@
             <a class="nav-link " href="{{route('register')}}">Registrate</a>
           </li>
           @else
-                <li class="nav-item">
-            <a class="nav-link" href="{{url('panelAdmin')}}">Panel Administrativo</a>
+          @can('general')
+          <li class="nav-item">
+            <a class="nav-link" href="{{url('panelAdmin')}}"><i class="fas fa-laptop-code"></i> Panel Administrativo</a>
           </li>
+          @endcan
            <li class="nav-item dropdown">
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><img src="{{asset('img/online.png')}}" width="10"> <i class="fa fa-user-o" aria-hidden="true"></i>
 
@@ -101,7 +104,7 @@
 
         <div id="list-example" class="list-group">
          @foreach($categorias as $categorias)
-          <a class="list-group-item list-group-item-action" href="{{url('categoria',$categorias->id)}}"><img class="categorias" src="{{asset('../storage/app/')}}/{{$categorias->img}}">  {{$categorias->nombre}}</a>
+          <a class="list-group-item list-group-item-action" href="{{url('vercategoria',$categorias->id)}}"><img class="categorias" src="{{asset('../storage/app/')}}/{{$categorias->img}}">  {{$categorias->nombre}}</a>
           @endforeach
         </div>
 

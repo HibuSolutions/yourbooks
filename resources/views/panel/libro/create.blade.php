@@ -46,7 +46,7 @@
 
                 <div class="form-group">
                 <label for="name">Libro PDF O WORD</label>
-                <input type="file" name="archivo"  class="form-control" required="" accept="application/pdf/doc/docx" >
+                <input type="file" name="archivo"  class="form-control" required="" accept="application/pdf" >
 
                 </div>
                

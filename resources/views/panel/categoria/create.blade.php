@@ -7,7 +7,7 @@
         <div class="card">
    
           <div class="card-header">
-            Nuevo Libro
+            Nueva categoria
             @if($errors->any())
         <div class="alert alert-danger">
             <ul>

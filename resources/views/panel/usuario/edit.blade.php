@@ -26,6 +26,7 @@
             <p>{{ session('mensaje') }}</p>
         </div>
     @endif
+           @role('administrador')
               <form action="{{ route('usuario.update', $usuario->id) }}" method="post">
                 @method('PUT')
                 @csrf
@@ -58,6 +59,9 @@
                   <input type="submit" value="Enviar" class="btn btn-success">
                 </div>
               </form>
+              @else
+                <h4>no tienes permisos para esta seccion</h4>
+              @endrole
             </div>
           </div>
         </div>

@@ -18,9 +18,8 @@ class ContactoController extends Controller
      */
     public function index()
     {
-        $contactos=Contacto::findOrFail(1);
-        $categorias=Categoria::all()->where('estado','0'); 
-       return view('contacto',compact('contactos','categorias'));
+     $data=Contacto::findOrFail(1);
+        return view('panel.contactos.contactos',compact('data'));
     }
 
     /**
@@ -115,8 +114,5 @@ class ContactoController extends Controller
         //
     }
 
-    public function panelC(){
-        $data=Contacto::findOrFail(1);
-        return view('panel.contactos.contactos',compact('data'));
-    }
+   
 }

@@ -31,17 +31,22 @@
     <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('panelAdmin')}}">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-book"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">YourBooks<sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">YourBooks<sup>HB</sup></div>
       </a>
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
+         <li class="nav-item active">
+        <a class="nav-link" href="{{url('/')}}">
+          <i class="fas fa-home"></i>
+          <span>Inicio</span></a>
+      </li>
       <li class="nav-item active">
         <a class="nav-link" href="{{url('panelAdmin')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -62,10 +67,9 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Components:</h6>
-            <a class="collapse-item" href="buttons.html">Top</a>
-            <a class="collapse-item" href="cards.html">Colores</a>
-            <a class="collapse-item" href="cards.html">Imagenes</a>
+           
+            <a class="collapse-item" href="{{url('intro')}}">Texto Inicio</a>
+      
           </div>
         </div>
       </li>
@@ -103,7 +107,7 @@
        
             <a class="collapse-item" href="{{url('libro')}}">Libros</a>
             <a class="collapse-item" href="{{url('categoria')}}">Categorias</a>
-            <a class="collapse-item" href="{{url('contactosPanel')}}">Contacto</a>
+            <a class="collapse-item" href="{{url('contacto')}}">Contacto</a>
           </div>
         </div>
       </li>
@@ -140,54 +144,8 @@
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
-            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-            <li class="nav-item dropdown no-arrow d-sm-none">
-              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-search fa-fw"></i>
-              </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                <form class="form-inline mr-auto w-100 navbar-search">
-                  <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                      <button class="btn btn-primary" type="button">
-                        <i class="fas fa-search fa-sm"></i>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </li>
 
-            <!-- Nav Item - Alerts -->
-            <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-bell fa-fw"></i>
-                <!-- Counter - Alerts -->
-                <span class="badge badge-danger badge-counter">3+</span>
-              </a>
-              <!-- Dropdown - Alerts -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
-                <h6 class="dropdown-header">
-                  Alertas
-                </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-primary">
-                      <i class="far fa-bell"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 12, 2019</div>
-                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                  </div>
-                </a>
-   
-               
-                <a class="dropdown-item text-center small text-gray-500" href="#">Ver todas las alertas</a>
-              </div>
-            </li>
+
 
             <!-- Nav Item - Messages -->
        
@@ -197,16 +155,12 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth()->user()->name}}</span>
+                <span class="mr-2 d-none d-lg-inline text-white-600 small ">{{Auth()->user()->name}}</span>
                 <img class="img-profile rounded-circle" src="https://scontent.fsal3-1.fna.fbcdn.net/v/t1.0-9/p960x960/72543079_528239914671069_1461814551807787008_o.jpg?_nc_cat=104&_nc_ohc=t-WntkwXNBMAQnJBOz4lO3zVeGKqnUwte9k7exe4eF0FehwPcjzzcbzSw&_nc_ht=scontent.fsal3-1.fna&oh=25908c66cdfe56976904a4b553e117f5&oe=5E82ECDC">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profile
-
-                </a>
+       
                     <a class="dropdown-item" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();"><i class="fa fa-share" aria-hidden="true"></i>

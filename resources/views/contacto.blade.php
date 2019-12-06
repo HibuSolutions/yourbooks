@@ -5,12 +5,7 @@
 @section('container')
 <div class="jumbotron mt-3">
   <h1 class="display-4">{{$contactos->txt1}}</h1>
-  <div class="row">
 
-      <a target="_blank" class="btn btn-primary ml-3" href="{{$contactos->fb}}"><i class="fab fa-facebook-square"></i></a>
-      <a target="_blank" class="btn btn-warning ml-2" href="{{$contactos->in}}"><i class="fab fa-instagram"></i></a>
-      <a target="_blank" class="btn btn-danger ml-2" href="{{$contactos->yt}}"><i class="fab fa-youtube"></i></a>
-  </div>
   <img class="card-img-top" src="../storage/app/{{$contactos->img}}">
   <hr class="my-4">
   <p>{{$contactos->txt2}}</p>

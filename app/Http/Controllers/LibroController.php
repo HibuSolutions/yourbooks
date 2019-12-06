@@ -36,14 +36,14 @@ class LibroController extends Controller
         $this->validate($request,[
             'titulo'=>'required|max:200',
             'descripcion' => ['required', 'string'],
-            'archivo' => 'required|mimes:pdf,doc,docx',
+            'archivo' => 'required|file|max:102400|mimes:pdf',
             'file' => 'required|mimes:jpg,jpeg,png',
        ],
 
         [
             'titulo.max' => 'Máximo 200 caracteres para el nombre',
             'archivo.required' => 'suba solo libros en pdf,doc,docx',
-            'archivo.mimes' => 'suba solo libros en pdf,doc,docx',
+            'archivo.mimes' => 'suba solo libros en pdf',
 
         ]);
 
@@ -53,6 +53,10 @@ class LibroController extends Controller
         $ruta=$request->file('file')->store('portadas');
         $ruta2=$request->file('archivo')->store('libros');
        
+
+
+
+
 
         $libro = new Libro;
         $libro->titulo = $request->titulo;
