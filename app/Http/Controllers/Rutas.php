@@ -65,6 +65,15 @@ class Rutas extends Controller
     }
 
 
+      public function verlibro($id)
+    {
+        $libro=Libro::findOrFail($id);
+        $categorias=Categoria::all()->where('estado','0'); 
+        return view('view',compact('libro','categorias'));
+    }
+
+
+
 
 
   

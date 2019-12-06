@@ -23,6 +23,7 @@ Route::get('/', 'Rutas@index');
 Route::get('contactos','Rutas@contacto');
 Route::get('librosGeneral', 'Rutas@librosGeneral');
 Route::Resource('vercategoria','Rutas');
+Route::get('verlibro/{id}','Rutas@verlibro');
 
 
 /* Rutas para todas las vitas admin*/

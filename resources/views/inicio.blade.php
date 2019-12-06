@@ -21,7 +21,7 @@
                   <h6>{{$libros->titulo}}</h6>
                  
                 </h4>
-               <a class="btn btn-info" href="{{route('libro.show',$libros->id)}}"><i class="fab fa-readme"></i></a>
+               <a class="btn btn-info" href="{{url('verlibro',$libros->id)}}"><i class="fab fa-readme"></i></a>
                <a class="btn btn-success" href=""><i class="fas fa-file-download"></i></a>
               </div>
               <div class="card-footer">
