@@ -1,6 +1,7 @@
 
-<img src="https://i.ibb.co/f9Zd6SM/Sin-t-tulo-1.jpg" alt="Sin-t-tulo-1" border="0">
-
+<img width="75" src="https://i.ibb.co/f9Zd6SM/Sin-t-tulo-1.jpg" alt="Sin-t-tulo-1" border="0">
+<img width="75" src="https://i.ibb.co/hmYZGfj/login.jpg" alt="login" border="0">
+<img width="75" src="https://i.ibb.co/yB8c32H/libros.jpg" alt="libros" border="0">
 
 ## HibuSolutions
 
